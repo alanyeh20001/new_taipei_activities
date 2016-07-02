@@ -20,6 +20,20 @@
   margin: auto;
 }
 
+body {
+ height: 100%;
+ background: image-url("white-noisy-background.jpg") repeat;
+}
+
+.main-block {
+  overflow: auto;  // for navbar & content float overflow
+  max-width: 960px;
+  height: 100%;
+  margin: auto;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+
 .header {
   @include bar-setting();  
   top: 0;
@@ -44,9 +58,36 @@
   }
 }
 
+.navbar {
+  float: left;
+  height: 100%;
+  width: 150px;
+  padding-top: 50px;
+  left: 0;
+    
+  .navbar-content {
+    background: rgba(242, 242, 238, 0.7);  
+    
+    ul {
+      list-style-type: none;
+      
+      li {
+        height: 40px;
+        border-bottom: 2px solid white;
+        line-height: 40px;
+      
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 .footer {
   @include bar-setting();
   bottom: 0;
+  clear: left;
   
   .footer-content {
     @include bar-content-setting();
