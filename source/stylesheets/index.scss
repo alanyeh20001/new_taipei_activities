@@ -1,0 +1,11 @@
+@import "compass/css3/box-shadow";
+
+.index {
+  @include box-shadow(-1px 2px 20px black);
+  
+  float: left;
+  min-height: 580px;
+  width: calc(100% - 150px);
+  background: rgba(255, 255, 255, 0.7);
+  
+}
