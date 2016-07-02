@@ -1,0 +1,77 @@
+@mixin icon-setting($right) {
+  float: right;
+  padding-top: 10px;
+  padding-right: $right;
+  color: #424242;
+}
+
+@mixin bar-setting() {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background: #f3c859;
+  color: #424242;
+  z-index: 99;
+}
+
+@mixin bar-content-setting() {
+  max-width: 960px;
+  width: 100%;
+  margin: auto;
+}
+
+.header {
+  @include bar-setting();  
+  top: 0;
+  
+  .header-content {
+    @include bar-content-setting();
+  
+    .title {
+      float: left;
+      line-height: 50px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .author-info {
+      @include icon-setting(10px);
+    }
+    
+    .share {
+      @include icon-setting(5px);
+    }
+  }
+}
+
+.footer {
+  @include bar-setting();
+  bottom: 0;
+  
+  .footer-content {
+    @include bar-content-setting();
+    
+    div {
+      float: left;
+      width: 40%;
+      line-height: 50px;
+      font-size: 17px;
+      text-align: center;
+    
+      &:nth-child(2) {
+        width: 15%;
+      
+        a {
+          text-decoration: none;
+          color: inherit;
+          
+          .fa {
+            padding-top: 10px;
+          } 
+        }
+      }
+    }
+  }  
+  
+}
+
