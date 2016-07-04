@@ -1,8 +1,9 @@
-@mixin icon-setting($right) {
-  float: right;
+@mixin icon-setting($length, $dir) {
+  float: $dir;
   padding-top: 10px;
-  padding-right: $right;
+  padding-#{$dir}: $length;
   color: #424242;
+  display: inline-block;
 }
 
 @mixin bar-setting() {
@@ -15,7 +16,7 @@
 }
 
 @mixin bar-content-setting() {
-  max-width: 960px;
+  max-width: 1000px;
   width: 100%;
   margin: auto;
 }
@@ -27,11 +28,11 @@ body {
 
 .main-block {
   overflow: auto;  // for navbar & content float overflow
-  max-width: 960px;
+  max-width: 1000px;
   height: 100%;
   margin: auto;
-  padding-bottom: 20px;
-  margin-bottom: 50px;
+  padding-bottom: 10px;
+  margin-bottom: 100px;
 }
 
 .header {
@@ -46,27 +47,76 @@ body {
       line-height: 50px;
       font-size: 20px;
       font-weight: bold;
+      padding-left: 5px;
     }
     
     .author-info {
-      @include icon-setting(10px);
+      @include icon-setting(10px, right);
+      
+      &:hover {
+        color: #727272;
+      }
     }
     
     .share {
-      @include icon-setting(5px);
+      @include icon-setting(20px, right);
+      
+      &:hover {
+        color: #727272;
+      }
+    }
+    
+    .nav-icon {
+      display: none;
     }
   }
 }
 
+// nav-icon appear
+@include adapt-to-device() {
+  .header .header-content .nav-icon {
+    @include icon-setting(10px, left);
+    
+    i {
+      font-size: 20px;
+    }
+  }
+  
+  .navbar {
+    display: none;
+  }
+};
+
+// responsive menu
+@include adapt-to-device() {
+  .responsive {
+    position: absolute;
+    display: block;
+    background: rgba(242, 242, 238, 0.9);
+    
+    .navbar-content ul {
+      display: block;
+      
+      li {
+        display: inline;
+    
+        a {
+          display: block;
+        }
+      }
+    }
+  }
+};
+
 .navbar {
   float: left;
   height: 100%;
-  width: 150px;
+  width: 160px;
   padding-top: 50px;
   left: 0;
     
   .navbar-content {
-    background: rgba(242, 242, 238, 0.7);  
+    background: rgba(242, 242, 238, 0.7);
     
     ul {
       list-style-type: none;
@@ -86,33 +136,63 @@ body {
 
 .footer {
   @include bar-setting();
-  bottom: 0;
-  clear: left;
-  
+  position: relative;
+  margin-top: -50px;
+  overflow: hidden;
+    
   .footer-content {
     @include bar-content-setting();
     
-    div {
+    .copyright {
       float: left;
-      width: 40%;
+      width: 50%;
       line-height: 50px;
-      font-size: 17px;
       text-align: center;
-    
-      &:nth-child(2) {
-        width: 15%;
       
-        a {
-          text-decoration: none;
-          color: inherit;
-          
-          .fa {
-            padding-top: 10px;
-          } 
+      p {
+        margin: 0;
+        font-size: 16px;
+      }
+    }
+    
+    .social-icon {
+      float: left;
+      width: 50%;
+      height: 50px;
+      text-align: center; 
+      
+      a {
+        text-decoration: none;
+        color: inherit;
+        padding-right: 10px;
+        
+        &:hover {
+          color: #727272;
+        }
+        
+        .fa {
+          padding-top: 10px;
         }
       }
     }
-  }  
-  
+  } 
+}   
+
+@include adapt-to-device() {
+  .footer {
+    position: relative;
+    margin-top: -100px;
+    height: 100px;
+    
+    .footer-content {
+      .copyright {
+        width: 100%;
+      }
+      
+      .social-icon {
+        width: 100%;
+      }
+    }
+  }
 }
 

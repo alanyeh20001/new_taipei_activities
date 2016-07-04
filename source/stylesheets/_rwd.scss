@@ -1,0 +1,8 @@
+$tablet-desktop-breakpoint: 768px;
+
+@mixin adapt-to-device() {
+  @media screen and (max-width: ($tablet-desktop-breakpoint - 1)) {
+    @content;
+  }
+}
+

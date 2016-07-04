@@ -5,7 +5,16 @@
   
   float: left;
   min-height: 580px;
-  width: calc(100% - 150px);
+  width: calc(100% - 160px);
   background: rgba(255, 255, 255, 0.7);
+  padding-top: 50px;
   
+  @include adapt-to-device() {
+    width: 100%;
+  }
+  
+  .index-content {
+    padding: 20px 30px 20px 30px;
+    word-wrap: break-word;
+  }
 }
