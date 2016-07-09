@@ -1,6 +1,7 @@
 require "open-uri"
 require "json"
 require "yaml"
+require "pry"
 
 class Activity
   attr_accessor :activity_sort, :store_path
@@ -8,10 +9,20 @@ class Activity
   def initialize(activity_path, store_path)
     @store_path = store_path
     activities_info = JSON.parse(open(activity_path).read)
-    sort(activities_info)
+    sorted_activities = quicksort(*activities_info)
+    categorize(sorted_activities)
   end
   
-  def sort(activities)
+  def quicksort(*activities)
+    return [] if activities.empty?
+
+    pivot = activities.delete_at(rand(activities.size))
+    left, right = activities.partition { |activity| activity["activedate"] < pivot["activedate"] }
+
+    return *quicksort(*left), pivot, *quicksort(*right)
+  end
+  
+  def categorize(activities)
     @activity_sort = Hash.new{ |hash, key| hash[key] = [] }
     
     activities.each do |activity|
