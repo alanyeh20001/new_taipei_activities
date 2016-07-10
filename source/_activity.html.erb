@@ -1,0 +1,24 @@
+<div class="item">
+  <div class="title">
+    <strong><%= activity[:title] %></strong>
+  </div>
+  <div class="description">
+    <i class="fa fa-sticky-note fa-lg" aria-hidden="true"></i> 
+    <%= activity[:description] %>
+  </div>
+  <div class="traffic">
+    <%# activity[:traffic] %>
+  </div>
+  <div class="date">
+    <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+    <% if activity[:activedate].slice(0, 10) == activity[:activeenddate].slice(0, 10) %>
+      <%= activity[:activedate] %> ~ <%= activity[:activeenddate].slice(-5, 5) %>
+    <% else %>
+      <%= activity[:activedate] %> ~ <%= activity[:activeenddate] %>
+    <% end %>
+  </div>
+  <div class="place">
+    <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+    <%= activity[:place] %>
+  </div>
+</div>

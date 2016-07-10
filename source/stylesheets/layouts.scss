@@ -129,6 +129,11 @@ body {
         &:last-child {
           border-bottom: 0;
         }
+          
+        a {
+          color: #4e45b6;
+          text-decoration: none;
+        }
       }
     }
   }
