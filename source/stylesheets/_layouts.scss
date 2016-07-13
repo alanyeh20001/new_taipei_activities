@@ -95,8 +95,7 @@ body {
 // responsive menu
 @include adapt-to-device() {
   .responsive {
-    position: fixed;
-    top: 0;
+    position: absolute;
     display: block;
     background: rgba(242, 242, 238, 0.9);
     
