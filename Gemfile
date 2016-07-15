@@ -15,4 +15,4 @@ gem 'middleman-compass', '>= 4.0.0'
 
 gem 'pry'
 gem 'mina'
-
+gem "therubyracer"
