@@ -17,3 +17,4 @@ gem 'pry'
 gem 'mina'
 gem "therubyracer"
 gem 'whenever', require: false
+gem 'rake'

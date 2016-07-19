@@ -146,6 +146,7 @@ DEPENDENCIES
   middleman-livereload
   mina
   pry
+  rake
   therubyracer
   tzinfo-data
   wdm (~> 0.1.0)
