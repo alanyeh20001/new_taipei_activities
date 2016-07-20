@@ -97,6 +97,7 @@ task :deploy => :environment do
 #    invoke :'rails:db_migrate'
 #    invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
+    invoke :'update_cron_jobs'
 
     to :launch do
 #      queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
@@ -104,6 +105,12 @@ task :deploy => :environment do
       invoke :'sitemake'
     end
   end
+end
+
+desc "Update cron jobs which renew the website everyday"
+task :update_cron_jobs => :environment do
+  queue "echo '-----> Updating whenever cron jobs'"
+  queue "bundle exec whenever --update-crontab --set 'path=#{deploy_to}/current/'"
 end
 
 desc "Update activities & Build the site"
@@ -114,15 +121,15 @@ end
 
 desc "Update new taipei activities from api"
 task :update_activities do
-  queue 'echo "-----> Executing update script"'
+  queue "echo '-----> Executing update script'"
   queue "bundle exec ruby script/update.rb -o data/activities.yml"
 end
 
 desc "Build up the site & Copy build directory to public"
 task :build do
-  queue 'echo "-----> Building the site"'
+  queue "echo '-----> Building the site'"
   queue "bundle exec middleman build"
-  queue 'echo "-----> Copying built site to public"'
+  queue "echo '-----> Copying built site to public'"
   queue "cp -R ./build/ public/"
 end
 
