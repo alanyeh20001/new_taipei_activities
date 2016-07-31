@@ -5,6 +5,6 @@ namespace :info do
   task :renew do
     system "bundle exec ruby script/update.rb -o data/activities.yml"
     system "bundle exec middleman build"
-    system "cp -R build/ public/"
+    system "cp -R build/* public/"
   end
 end
