@@ -18,3 +18,4 @@ gem 'mina'
 gem "therubyracer"
 gem 'whenever', require: false
 gem 'rake'
+gem 'middleman-minify-html'
