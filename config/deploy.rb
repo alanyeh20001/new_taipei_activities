@@ -110,6 +110,7 @@ end
 desc "Update cron jobs which renew the website everyday"
 task :update_cron_jobs => :environment do
   queue "echo '-----> Updating whenever cron jobs'"
+  queue "bundle exec whenever --clear-crontab --set 'path=#{deploy_to}/current/'"
   queue "bundle exec whenever --update-crontab --set 'path=#{deploy_to}/current/'"
 end
 
