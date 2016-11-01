@@ -3,7 +3,7 @@
     <strong><%= activity[:title] %></strong>
   </div>
   <div class="description">
-    <i class="fa fa-sticky-note fa-lg" aria-hidden="true"></i> 
+    <i class="fa fa-sticky-note fa-lg" aria-hidden="true"></i>
     <%= activity[:description] %>
   </div>
   <div class="traffic">
@@ -20,5 +20,6 @@
   <div class="place">
     <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
     <%= activity[:place] %>
+    <%= link_to image_tag("map.png"), "javascript:void(0);", class: "map-link", data: { address: "#{activity[:maddress]}" } %>
   </div>
 </div>
