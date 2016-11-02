@@ -1,0 +1,27 @@
+---
+education:
+- id:
+  title:
+  activedate:
+  description:
+  classname:
+  author:
+  sflag:
+  pflag:
+  money:
+  place:
+  placetel:
+  maddress:
+  traffic:
+  people1:
+  people1tel:
+  people1mail:
+  people2:
+  people2tel:
+  people2mail:
+  abouturl:
+  downloadurl:
+  picurl:
+  createDate:
+  modifiedDate:
+  activeenddate:
