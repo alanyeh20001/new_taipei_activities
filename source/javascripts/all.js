@@ -35,6 +35,8 @@ function share() {
           map = "<div class='gmap' style='display:block;'><iframe width='90%' height='300' src=" + src + "></iframe></div>";
 
       $(this).parent().append(map);
+
+      ga('send', 'event', 'Google Map', 'click');
     }
   })
 })();
