@@ -22,7 +22,8 @@ set :fonts_dir, "fonts"
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload
+  # activate :livereload
+  activate :sprockets
 end
 
 ###
